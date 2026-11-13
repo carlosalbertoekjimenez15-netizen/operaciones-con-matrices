@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog de Álgebra - Productos Notables</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f111a;
+      color: #e2e8f0;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .blog-container {
+      max-width: 850px;
+      margin: 0 auto;
+      background-color: #1e2139;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    header {
+      border-bottom: 2px solid #2d3748;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      color: #63b3ed;
+      margin: 10px 0;
+      font-size: 2.4em;
+    }
+
+    h2 {
+      color: #68d391;
+      border-bottom: 1px solid #2d3748;
+      padding-bottom: 10px;
+      margin-top: 20px;
+    }
+
+    .back-link {
+      color: #a0aec0;
+      text-decoration: none;
+      font-size: 0.9em;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: #63b3ed;
+    }
+
+    .post-meta {
+      font-size: 0.95em;
+      color: #718096;
+      font-weight: 600;
+      background-color: #1a202c;
+      padding: 10px 15px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .intro {
+      font-size: 1.1em;
+      margin-bottom: 40px;
+      color: #cbd5e0;
+    }
+
+    .product-section {
+      background-color: #252a41;
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 35px;
+      border-left: 5px solid #63b3ed;
+    }
+
+    .rule {
+      background-color: #1a202c;
+      padding: 18px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-style: italic;
+      border-left: 3px solid #f6ad55;
+      color: #e2e8f0;
+    }
+
+    .example {
+      margin-bottom: 25px;
+    }
+
+    ol {
+      background-color: #1a202c;
+      padding: 20px 20px 20px 45px;
+      border-radius: 6px;
+      margin-top: 15px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    code {
+      background-color: #000;
+      padding: 4px 8px;
+      border-radius: 4px;
+      color: #fbd38d;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+
+    .toggle-btn {
+      background-color: #4a5568;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    .toggle-btn:hover {
+      background-color: #2b6cb0;
+    }
+
+    .table-container {
+      margin-top: 20px;
+      background-color: #1a202c;
+      padding: 25px;
+      border-radius: 8px;
+      border: 1px solid #4a5568;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    th, td {
+      border: 1px solid #4a5568;
+      padding: 15px;
+      font-size: 1.1em;
+    }
+
+    th {
+      background-color: #2d3748;
+      color: #63b3ed;
+    }
+
+    td {
+      background-color: #252a41;
+    }
+
+    .sum {
+      text-align: center;
+      font-weight: 600;
+      color: #9ae6b4;
+      background-color: #111;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="blog-container">
+    <header>
+
+      <div class="post-meta">
+        <span>Autor: Carlos Ek</span> | <span>Entradas de Álgebra</span>
+        
+        <div style="margin-top: 15px;">
+          <a href="entradas/factorizacion.html" class="back-link" style="background-color: #2d3748; padding: 8px 12px; border-radius: 6px; margin-left: 10px;">→ Factorización I</a>
+          <a href="entradas/factorizacion2.html" class="back-link" style="background-color: #2d3748; padding: 8px 12px; border-radius: 6px; margin-left: 10px;">→ Factorización II</a>
+          <a href="entradas/ecuaciones.html" class="back-link" style="background-color: #2d3748; padding: 8px 12px; border-radius: 6px; margin-left: 10px;">→ Ecuaciones de Primer Grado</a>
+        </div>
+      </div> 
+    </header>
+
+    <article>
+      <p class="intro">En esta entrada explicaremos los cuatro productos notables principales. Estas reglas matemáticas nos permiten encontrar el resultado de ciertas multiplicaciones algebraicas de forma directa, ahorrando tiempo.</p>
+
+      <!-- 1. Binomio al cuadrado -->
+      <section class="product-section">
+        <h2>1. Binomio al Cuadrado</h2>
+        <div class="rule">
+          <strong>Regla:</strong> El resultado es igual al cuadrado del primer término, más (o menos, dependiendo del signo) el doble del producto del primer término por el segundo, más el cuadrado del segundo término.
+        </div>
+        <div class="example">
+          <strong>Ejemplo paso a paso:</strong> <code>(3x + 4y)<sup>2</sup></code>
+          <ol>
+            <li>Cuadrado del primero: <code>(3x)<sup>2</sup> = 9x<sup>2</sup></code></li>
+            <li>Doble del primero por el segundo: <code>2(3x)(4y) = 24xy</code></li>
+            <li>Cuadrado del segundo: <code>(4y)<sup>2</sup> = 16y<sup>2</sup></code></li>
+          </ol>
+          <p><strong>Resultado final:</strong> <code>9x<sup>2</sup> + 24xy + 16y<sup>2</sup></code></p>
+        </div>
+        
+        <button class="toggle-btn" onclick="toggleTable('table1', this)">Ver comprobación (Método de tabla)</button>
+        <div id="table1" class="table-container hidden">
+          <table>
+            <tr>
+              <th>×</th>
+              <th>3x</th>
+              <th>+4y</th>
+            </tr>
+            <tr>
+              <th>3x</th>
+              <td>9x<sup>2</sup></td>
+              <td>+12xy</td>
+            </tr>
+            <tr>
+              <th>+4y</th>
+              <td>+12xy</td>
+              <td>+16y<sup>2</sup></td>
+            </tr>
+          </table>
+          <p class="sum">Suma: <code>9x<sup>2</sup> + 12xy + 12xy + 16y<sup>2</sup> = 9x<sup>2</sup> + 24xy + 16y<sup>2</sup></code></p>
+        </div>
+      </section>
+
+      <!-- 2. Binomio al cubo -->
+      <section class="product-section">
+        <h2>2. Binomio al Cubo</h2>
+        <div class="rule">
+          <strong>Regla:</strong> Es igual al cubo del primer término, más el triple producto del cuadrado del primero por el segundo, más el triple producto del primero por el cuadrado del segundo, más el cubo del segundo término.
+        </div>
+        <div class="example">
+          <strong>Ejemplo paso a paso:</strong> <code>(x + 4)<sup>3</sup></code>
+          <ol>
+            <li>Cubo del primero: <code>(x)<sup>3</sup> = x<sup>3</sup></code></li>
+            <li>Triple del 1º al cuadrado por el 2º: <code>3(x<sup>2</sup>)(4) = 12x<sup>2</sup></code></li>
+            <li>Triple del 1º por el 2º al cuadrado: <code>3(x)(4<sup>2</sup>) = 3(x)(16) = 48x</code></li>
+            <li>Cubo del segundo: <code>(4)<sup>3</sup> = 64</code></li>
+          </ol>
+          <p><strong>Resultado final:</strong> <code>x<sup>3</sup> + 12x<sup>2</sup> + 48x + 64</code></p>
+        </div>
+        
+        <button class="toggle-btn" onclick="toggleTable('table2', this)">Ver comprobación (Método de tabla)</button>
+        <div id="table2" class="table-container hidden">
+          <p><small>Para comprobar, multiplicamos <code>(x + 4)</code> por el resultado de <code>(x + 4)<sup>2</sup></code> que es <code>(x<sup>2</sup> + 8x + 16)</code></small></p>
+          <table>
+            <tr>
+              <th>×</th>
+              <th>x<sup>2</sup></th>
+              <th>+8x</th>
+              <th>+16</th>
+            </tr>
+            <tr>
+              <th>x</th>
+              <td>x<sup>3</sup></td>
+              <td>+8x<sup>2</sup></td>
+              <td>+16x</td>
+            </tr>
+            <tr>
+              <th>+4</th>
+              <td>+4x<sup>2</sup></td>
+              <td>+32x</td>
+              <td>+64</td>
+            </tr>
+          </table>
+          <p class="sum">Suma agrupando términos: <code>x<sup>3</sup> + (8x<sup>2</sup> + 4x<sup>2</sup>) + (16x + 32x) + 64 = x<sup>3</sup> + 12x<sup>2</sup> + 48x + 64</code></p>
+        </div>
+      </section>
+
+      <!-- 3. Binomios con término común -->
+      <section class="product-section">
+        <h2>3. Binomios con Término Común</h2>
+        <div class="rule">
+          <strong>Regla:</strong> El resultado es el cuadrado del término común, más la suma algebraica de los términos no comunes multiplicada por el término común, más el producto de los términos no comunes.
+        </div>
+        <div class="example">
+          <strong>Ejemplo paso a paso:</strong> <code>(x + 6)(x - 2)</code>
+          <ol>
+            <li>Cuadrado del común: <code>(x)<sup>2</sup> = x<sup>2</sup></code></li>
+            <li>Suma de no comunes por el común: <code>(+6 - 2)(x) = 4x</code></li>
+            <li>Producto de no comunes: <code>(+6)(-2) = -12</code></li>
+          </ol>
+          <p><strong>Resultado final:</strong> <code>x<sup>2</sup> + 4x - 12</code></p>
+        </div>
+        
+        <button class="toggle-btn" onclick="toggleTable('table3', this)">Ver comprobación (Método de tabla)</button>
+        <div id="table3" class="table-container hidden">
+          <table>
+            <tr>
+              <th>×</th>
+              <th>x</th>
+              <th>+6</th>
+            </tr>
+            <tr>
+              <th>x</th>
+              <td>x<sup>2</sup></td>
+              <td>+6x</td>
+            </tr>
+            <tr>
+              <th>-2</th>
+              <td>-2x</td>
+              <td>-12</td>
+            </tr>
+          </table>
+          <p class="sum">Suma: <code>x<sup>2</sup> + 6x - 2x - 12 = x<sup>2</sup> + 4x - 12</code></p>
+        </div>
+      </section>
+
+      <!-- 4. Binomios conjugados -->
+      <section class="product-section">
+        <h2>4. Binomios Conjugados</h2>
+        <div class="rule">
+          <strong>Regla:</strong> El producto de dos binomios conjugados es igual a una diferencia de cuadrados. Es decir, el cuadrado del primer término menos el cuadrado del segundo término.
+        </div>
+        <div class="example">
+          <strong>Ejemplo paso a paso:</strong> <code>(5x + 7y)(5x - 7y)</code>
+          <ol>
+            <li>Cuadrado del primer término: <code>(5x)<sup>2</sup> = 25x<sup>2</sup></code></li>
+            <li>Menos el cuadrado del segundo término: <code>-(7y)<sup>2</sup> = -49y<sup>2</sup></code></li>
+          </ol>
+          <p><strong>Resultado final:</strong> <code>25x<sup>2</sup> - 49y<sup>2</sup></code></p>
+        </div>
+        
+        <button class="toggle-btn" onclick="toggleTable('table4', this)">Ver comprobación (Método de tabla)</button>
+        <div id="table4" class="table-container hidden">
+          <table>
+            <tr>
+              <th>×</th>
+              <th>5x</th>
+              <th>+7y</th>
+            </tr>
+            <tr>
+              <th>5x</th>
+              <td>25x<sup>2</sup></td>
+              <td>+35xy</td>
+            </tr>
+            <tr>
+              <th>-7y</th>
+              <td>-35xy</td>
+              <td>-49y<sup>2</sup></td>
+            </tr>
+          </table>
+          <p class="sum">Suma: <code>25x<sup>2</sup> + 35xy - 35xy - 49y<sup>2</sup> = 25x<sup>2</sup> - 49y<sup>2</sup></code></p>
+        </div>
+      </section>
+    <!-- ========================================== -->
+      <!-- NUEVA ENTRADA: FACTORIZACIÓN I -->
+      <!-- ========================================== -->
+      <hr style="border: 1px solid #2d3748; margin: 60px 0;" id="factorizacion">
+      
+      <h1>Factorización I</h1>
+      
+      <p class="intro">En esta entrada documentaremos los primeros casos de factorización como el proceso inverso de los productos notables, para consolidar la relación entre multiplicar y factorizar.</p>
+
+      <!-- 1. Factorización con Término Común -->
+      <section class="product-section">
+        <h2>1. Factorización por Término Común (Trinomio de la forma x² + bx + c)</h2>
+        <div class="rule">
+          <strong>Cómo reconocerlo:</strong> Es un trinomio donde el primer término es una variable al cuadrado (con coeficiente 1), el segundo tiene la misma variable sin exponente, y el tercero es un número independiente.
+          <br><br>
+          <strong>Procedimiento:</strong> Abrimos dos paréntesis. En ambos colocamos la raíz cuadrada del primer término (el término común). Después, buscamos dos números que multiplicados nos den el tercer término, y que sumados o restados nos den el coeficiente del segundo término.
+        </div>
+        <div class="example">
+          <strong>Ejemplo resuelto:</strong> <code>x<sup>2</sup> + 8x + 15</code>
+          <ol>
+            <li>Raíz del primer término: <code>x</code>. Abrimos paréntesis: <code>(x &nbsp;&nbsp;&nbsp;)(x &nbsp;&nbsp;&nbsp;)</code></li>
+            <li>Buscamos números que multiplicados den 15 y sumados den 8.</li>
+            <li>Los números son 5 y 3 (porque 5×3 = 15 y 5+3 = 8).</li>
+          </ol>
+          <p><strong>Resultado final:</strong> <code>(x + 5)(x + 3)</code></p>
+        </div>
+        
+        <button class="toggle-btn" onclick="toggleTable('comp1', this)">Ver comprobación</button>
+        <div id="comp1" class="table-container hidden">
+          <p>Multiplicamos de regreso usando la propiedad distributiva:</p>
+          <p><code>(x + 5)(x + 3) = (x)(x) + (x)(3) + (5)(x) + (5)(3)</code></p>
+          <p><code>= x<sup>2</sup> + 3x + 5x + 15</code></p>
+          <p class="sum"><code>= x<sup>2</sup> + 8x + 15</code> (El resultado es el trinomio original)</p>
+        </div>
+      </section>
+
+      <!-- 2. Trinomio Cuadrado Perfecto -->
+      <section class="product-section">
+        <h2>2. Trinomio Cuadrado Perfecto (TCP)</h2>
+        <div class="rule">
+          <strong>Cómo reconocerlo:</strong> Debe tener tres términos. El primero y el último deben ser positivos y tener raíz cuadrada exacta. Además, el término de en medio debe ser exactamente el doble de multiplicar esas dos raíces.
+          <br><br>
+          <strong>Procedimiento:</strong> Le sacamos la raíz cuadrada al primer y al tercer término. Escribimos ambas raíces dentro de un paréntesis, separadas por el signo que tenga el segundo término, y finalmente elevamos todo ese paréntesis al cuadrado.
+        </div>
+        <div class="example">
+          <strong>Ejemplo resuelto:</strong> <code>4x<sup>2</sup> - 20x + 25</code>
+          <ol>
+            <li>Raíz del primer término: <code>√(4x<sup>2</sup>) = 2x</code></li>
+            <li>Raíz del tercer término: <code>√(25) = 5</code></li>
+            <li>Verificamos el de en medio: <code>2(2x)(5) = 20x</code> (¡Sí cumple!).</li>
+            <li>Tomamos el signo del medio (-) y elevamos al cuadrado.</li>
+          </ol>
+          <p><strong>Resultado final:</strong> <code>(2x - 5)<sup>2</sup></code></p>
+        </div>
+        
+        <button class="toggle-btn" onclick="toggleTable('comp2', this)">Ver comprobación</button>
+        <div id="comp2" class="table-container hidden">
+          <p>Multiplicamos el binomio por sí mismo:</p>
+          <p><code>(2x - 5)(2x - 5) = (2x)(2x) + (2x)(-5) + (-5)(2x) + (-5)(-5)</code></p>
+          <p><code>= 4x<sup>2</sup> - 10x - 10x + 25</code></p>
+          <p class="sum"><code>= 4x<sup>2</sup> - 20x + 25</code> (El resultado es el TCP original)</p>
+        </div>
+      </section>
+
+      <!-- 3. Diferencia de Cuadrados -->
+      <section class="product-section">
+        <h2>3. Diferencia de Cuadrados</h2>
+        <div class="rule">
+          <strong>Cómo reconocerlo:</strong> Solo son dos términos (es un binomio). Siempre hay un signo de resta entre ellos, y ambos términos tienen raíz cuadrada exacta.
+          <br><br>
+          <strong>Procedimiento:</strong> Obtenemos la raíz cuadrada de cada uno de los dos términos. Abrimos dos paréntesis; en uno ponemos la suma de estas raíces y en el otro ponemos la resta (formando binomios conjugados).
+        </div>
+        <div class="example">
+          <strong>Ejemplo resuelto:</strong> <code>16m<sup>2</sup> - 81</code>
+          <ol>
+            <li>Raíz del primer término: <code>√(16m<sup>2</sup>) = 4m</code></li>
+            <li>Raíz del segundo término: <code>√(81) = 9</code></li>
+            <li>Formamos un binomio sumando y otro restando.</li>
+          </ol>
+          <p><strong>Resultado final:</strong> <code>(4m + 9)(4m - 9)</code></p>
+        </div>
+        
+        <button class="toggle-btn" onclick="toggleTable('comp3', this)">Ver comprobación</button>
+        <div id="comp3" class="table-container hidden">
+          <p>Multiplicamos los binomios conjugados de regreso:</p>
+          <p><code>(4m + 9)(4m - 9) = (4m)(4m) + (4m)(-9) + (9)(4m) + (9)(-9)</code></p>
+          <p><code>= 16m<sup>2</sup> - 36m + 36m - 81</code></p>
+          <p class="sum"><code>= 16m<sup>2</sup> - 81</code> (Los términos del medio se cancelan)</p>
+        </div>
+      </section>
+
+      <!-- Sección: Ida y Regreso -->
+      <section class="product-section" style="border-left: 5px solid #f6ad55;">
+        <h2>Ida y regreso</h2>
+        <p>Relación entre los casos de factorización y los productos notables:</p>
+        <ul style="background-color: #1a202c; padding: 25px 25px 25px 45px; border-radius: 6px; font-size: 1.1em; line-height: 1.8;">
+          <li>
+            <strong>Ida:</strong> Al multiplicar <em>Binomios Conjugados</em> obtenemos una <strong>Diferencia de Cuadrados</strong>.<br>
+            <strong>Regreso:</strong> Al factorizar una <strong>Diferencia de Cuadrados</strong> volvemos a los <em>Binomios Conjugados</em>.
+          </li>
+          <li style="margin-top: 15px;">
+            <strong>Ida:</strong> Al desarrollar un <em>Binomio al Cuadrado</em> obtenemos un <strong>Trinomio Cuadrado Perfecto (TCP)</strong>.<br>
+            <strong>Regreso:</strong> Al factorizar un <strong>TCP</strong> volvemos al <em>Binomio al Cuadrado</em>.
+          </li>
+          <li style="margin-top: 15px;">
+            <strong>Ida:</strong> Al multiplicar <em>Binomios con Término Común</em> obtenemos un <strong>Trinomio de la forma x² + bx + c</strong>.<br>
+            <strong>Regreso:</strong> Al factorizar este <strong>Trinomio</strong> volvemos a los <em>Binomios con Término Común</em>.
+          </li>
+        </ul>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- NUEVA ENTRADA: FACTORIZACIÓN II -->
+      <!-- ========================================== -->
+      <hr style="border: 1px solid #2d3748; margin: 60px 0;" id="factorizacion2">
+      
+      <h1>Factorización II</h1>
+      
+      <p class="intro">En esta entrada completaremos la documentación de los casos de factorización e incluiremos una estrategia paso a paso para identificar qué método aplicar ante cualquier polinomio.</p>
+
+      <!-- 1. Suma y diferencia de cubos -->
+      <section class="product-section">
+        <h2>1. Suma y Diferencia de Cubos</h2>
+        <div class="rule">
+          <strong>Cómo reconocerlo:</strong> Es un binomio (dos términos) separados por un signo de suma o resta, donde ambos términos tienen raíz cúbica exacta.
+          <br><br>
+          <strong>Procedimiento:</strong> Primero extraemos la raíz cúbica de ambos términos. Formamos un binomio corto con estas raíces y el mismo signo original. Luego, lo multiplicamos por un trinomio formado por: el cuadrado de la primera raíz, el signo contrario seguido del producto de ambas raíces, y finalmente el cuadrado de la segunda raíz siempre sumando.
+        </div>
+        <div class="example">
+          <strong>Ejemplo resuelto:</strong> <code>8x<sup>3</sup> + 27</code>
+          <ol>
+            <li>Raíz cúbica del primero: <code>∛(8x<sup>3</sup>) = 2x</code></li>
+            <li>Raíz cúbica del segundo: <code>∛(27) = 3</code></li>
+            <li>Binomio corto: <code>(2x + 3)</code></li>
+            <li>Trinomio largo: <code>(2x)<sup>2</sup> - (2x)(3) + (3)<sup>2</sup> = 4x<sup>2</sup> - 6x + 9</code></li>
+          </ol>
+          <p><strong>Resultado final:</strong> <code>(2x + 3)(4x<sup>2</sup> - 6x + 9)</code></p>
+        </div>
+        
+        <button class="toggle-btn" onclick="toggleTable('comp_cubos', this)">Ver comprobación</button>
+        <div id="comp_cubos" class="table-container hidden">
+          <p>Multiplicamos los polinomios usando la propiedad distributiva:</p>
+          <p><code>(2x)(4x<sup>2</sup> - 6x + 9) + (3)(4x<sup>2</sup> - 6x + 9)</code></p>
+          <p><code>= 8x<sup>3</sup> - 12x<sup>2</sup> + 18x + 12x<sup>2</sup> - 18x + 27</code></p>
+          <p class="sum"><code>= 8x<sup>3</sup> + 27</code> (Los términos intermedios se cancelan)</p>
+        </div>
+      </section>
+
+      <!-- 2. Trinomios x2 + bx + c -->
+      <section class="product-section">
+        <h2>2. Trinomios de la forma x² + bx + c</h2>
+        <div class="rule">
+          <strong>Cómo reconocerlo:</strong> Es un trinomio cuyo primer término es una variable elevada al cuadrado con coeficiente 1, un término lineal y un término independiente.
+          <br><br>
+          <strong>Procedimiento:</strong> Se abren dos factores binomios cuyo primer término es la raíz de <code>x²</code>. Luego se buscan dos números que multiplicados den el término independiente (c) y que sumados o restados den el coeficiente del término lineal (b).
+        </div>
+        <div class="example">
+          <strong>Ejemplo resuelto:</strong> <code>y<sup>2</sup> - 9y + 14</code>
+          <ol>
+            <li>Raíz del primer término: <code>y</code>. Paréntesis: <code>(y &nbsp;&nbsp;&nbsp;)(y &nbsp;&nbsp;&nbsp;)</code></li>
+            <li>Buscamos dos números que multiplicados den +14 y sumados den -9.</li>
+            <li>Los números son -7 y -2.</li>
+          </ol>
+          <p><strong>Resultado final:</strong> <code>(y - 7)(y - 2)</code></p>
+        </div>
+        
+        <button class="toggle-btn" onclick="toggleTable('comp_x2', this)">Ver comprobación</button>
+        <div id="comp_x2" class="table-container hidden">
+          <p>Multiplicamos de regreso:</p>
+          <p><code>(y - 7)(y - 2) = y<sup>2</sup> - 2y - 7y + 14</code></p>
+          <p class="sum"><code>= y<sup>2</sup> - 9y + 14</code></p>
+        </div>
+      </section>
+
+      <!-- 3. Trinomios ax2 + bx + c (Aspa Simple) -->
+      <section class="product-section">
+        <h2>3. Trinomios de la forma ax² + bx + c (Aspa Simple)</h2>
+        <div class="rule">
+          <strong>Cómo reconocerlo:</strong> Es un trinomio donde el coeficiente del término al cuadrado es diferente de 1.
+          <br><br>
+          <strong>Procedimiento (Aspa simple):</strong> Descomponemos el primer término en dos factores y el tercer término en otros dos factores. Multiplicamos de forma cruzada (en "aspa") y sumamos los resultados; esta suma debe ser igual al término central. Si coincide, agrupamos los factores en forma horizontal para el resultado final.
+        </div>
+        <div class="example">
+          <strong>Ejemplo resuelto:</strong> <code>3x<sup>2</sup> + 14x + 8</code>
+          <ol>
+            <li>Descomponemos <code>3x<sup>2</sup></code> en <code>3x</code> y <code>x</code>.</li>
+            <li>Descomponemos <code>8</code> en <code>2</code> y <code>4</code>.</li>
+            <li>Multiplicamos cruzado: <code>(3x)(4) = 12x</code> y <code>(x)(2) = 2x</code>.</li>
+            <li>Sumamos: <code>12x + 2x = 14x</code> (Coincide con el término central).</li>
+            <li>Tomamos los factores horizontalmente: <code>(3x + 2)</code> y <code>(x + 4)</code>.</li>
+          </ol>
+          <p><strong>Resultado final:</strong> <code>(3x + 2)(x + 4)</code></p>
+        </div>
+        
+        <button class="toggle-btn" onclick="toggleTable('comp_ax2', this)">Ver comprobación</button>
+        <div id="comp_ax2" class="table-container hidden">
+          <p>Multiplicamos de regreso:</p>
+          <p><code>(3x + 2)(x + 4) = 3x(x) + 3x(4) + 2(x) + 2(4)</code></p>
+          <p><code>= 3x<sup>2</sup> + 12x + 2x + 8</code></p>
+          <p class="sum"><code>= 3x<sup>2</sup> + 14x + 8</code></p>
+        </div>
+      </section>
+
+      <!-- 4. Estrategia de Factorización -->
+      <section class="product-section" style="border-left: 5px solid #68d391;">
+        <h2>Estrategia de factorización</h2>
+        <p>Para decidir qué método aplicar ante cualquier polinomio, sigue estos pasos analizando el número de términos:</p>
+        <ul style="background-color: #1a202c; padding: 25px 25px 25px 45px; border-radius: 6px; font-size: 1.1em; line-height: 1.8;">
+          <li>
+            <strong>Paso 0 (Siempre aplica):</strong> Revisa si existe un <em>Factor Común</em> numérico o literal en todos los términos y extráelo primero.
+          </li>
+          <li>
+            <strong>Si son 2 términos (Binomio):</strong>
+            <ul>
+              <li>Si se están restando y tienen raíz cuadrada: <em>Diferencia de Cuadrados</em>.</li>
+              <li>Si se suman o restan y tienen raíz cúbica: <em>Suma o Diferencia de Cubos</em>.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Si son 3 términos (Trinomio):</strong>
+            <ul>
+              <li>Revisa si el 1° y 3° término tienen raíz cuadrada y el centro es el doble producto: <em>Trinomio Cuadrado Perfecto (TCP)</em>.</li>
+              <li>Si empieza con x² (coeficiente 1): <em>Trinomio de la forma x² + bx + c</em>.</li>
+              <li>Si empieza con un número distinto de 1: <em>Trinomio de la forma ax² + bx + c (Aspa Simple)</em>.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Si son 4 o más términos:</strong> Agrupa los términos de dos en dos o tres en tres e intenta hacer <em>Factorización por Agrupación</em>.
+          </li>
+        </ul>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- NUEVA ENTRADA: ECUACIONES DE PRIMER GRADO -->
+      <!-- ========================================== -->
+      <hr style="border: 1px solid #2d3748; margin: 60px 0;" id="ecuaciones">
+      
+      <h1>Ecuaciones de Primer Grado</h1>
+      
+      <p class="intro">En esta entrada documentaremos el procedimiento general para resolver cualquier ecuación de primer grado, presentaremos ejemplos prácticos de diferentes tipos y finalizaremos con el planteamiento de un problema de la vida real (enfocado al software).</p>
+
+      <!-- Procedimiento General -->
+      <section class="product-section">
+        <h2>Procedimiento General</h2>
+        <div class="rule">
+          <strong>Pasos para resolver cualquier ecuación de primer grado:</strong>
+          <ol>
+            <li><strong>Eliminar signos de agrupación:</strong> Resolver las multiplicaciones para suprimir paréntesis o corchetes.</li>
+            <li><strong>Eliminar denominadores:</strong> Si es fraccionaria, multiplicar todos los términos por el Mínimo Común Múltiplo (MCM).</li>
+            <li><strong>Transposición de términos:</strong> Agrupar en un lado del signo igual todos los términos con la incógnita (x) y en el otro lado los términos independientes (cambiando su signo al cruzar).</li>
+            <li><strong>Reducción:</strong> Sumar o restar los términos semejantes en ambos lados para llegar a la forma <code>ax = b</code>.</li>
+            <li><strong>Despeje:</strong> Dividir ambos lados entre el coeficiente que acompaña a la incógnita.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Ejemplos Resueltos -->
+      <section class="product-section">
+        <h2>Ejemplos Resueltos por Tipo</h2>
+
+        <!-- 1. Enteras -->
+        <h3 style="color: #63b3ed;">1. Ecuaciones Enteras</h3>
+        <div class="example">
+          <strong>Ejemplo:</strong> <code>5x - 8 = 2x + 7</code>
+          <ol>
+            <li>Agrupamos las incógnitas a la izquierda: <code>5x - 2x = 7 + 8</code></li>
+            <li>Reducimos términos: <code>3x = 15</code></li>
+            <li>Despejamos: <code>x = 15 / 3</code> ➔ <strong>x = 5</strong></li>
+          </ol>
+        </div>
+        <button class="toggle-btn" onclick="toggleTable('comp_eq1', this)">Ver comprobación</button>
+        <div id="comp_eq1" class="table-container hidden">
+          <p>Sustituimos <code>x = 5</code> en la ecuación original:</p>
+          <p><code>5(5) - 8 = 2(5) + 7</code></p>
+          <p><code>25 - 8 = 10 + 7</code></p>
+          <p class="sum"><code>17 = 17</code> (Cumple la igualdad)</p>
+        </div>
+
+        <hr style="border: 1px dashed #4a5568; margin: 30px 0;">
+
+        <!-- 2. Fraccionarias -->
+        <h3 style="color: #63b3ed;">2. Ecuaciones Fraccionarias</h3>
+        <div class="example">
+          <strong>Ejemplo:</strong> <code>x/2 + x/3 = 10</code>
+          <ol>
+            <li>Multiplicamos todo por el MCM (6): <code>6(x/2) + 6(x/3) = 6(10)</code></li>
+            <li>Simplificamos: <code>3x + 2x = 60</code></li>
+            <li>Reducimos: <code>5x = 60</code></li>
+            <li>Despejamos: <code>x = 60 / 5</code> ➔ <strong>x = 12</strong></li>
+          </ol>
+        </div>
+        <button class="toggle-btn" onclick="toggleTable('comp_eq2', this)">Ver comprobación</button>
+        <div id="comp_eq2" class="table-container hidden">
+          <p>Sustituimos <code>x = 12</code> en la original:</p>
+          <p><code>12/2 + 12/3 = 10</code></p>
+          <p><code>6 + 4 = 10</code></p>
+          <p class="sum"><code>10 = 10</code> (Cumple la igualdad)</p>
+        </div>
+
+        <hr style="border: 1px dashed #4a5568; margin: 30px 0;">
+
+        <!-- 3. Con Signos de Agrupación -->
+        <h3 style="color: #63b3ed;">3. Con Signos de Agrupación</h3>
+        <div class="example">
+          <strong>Ejemplo:</strong> <code>4(x - 2) - 2(x + 1) = 8</code>
+          <ol>
+            <li>Multiplicamos para quitar paréntesis: <code>4x - 8 - 2x - 2 = 8</code></li>
+            <li>Reducimos el lado izquierdo: <code>2x - 10 = 8</code></li>
+            <li>Transponemos el -10: <code>2x = 8 + 10</code> ➔ <code>2x = 18</code></li>
+            <li>Despejamos: <code>x = 18 / 2</code> ➔ <strong>x = 9</strong></li>
+          </ol>
+        </div>
+        <button class="toggle-btn" onclick="toggleTable('comp_eq3', this)">Ver comprobación</button>
+        <div id="comp_eq3" class="table-container hidden">
+          <p>Sustituimos <code>x = 9</code> en la original:</p>
+          <p><code>4(9 - 2) - 2(9 + 1) = 8</code></p>
+          <p><code>4(7) - 2(10) = 8</code></p>
+          <p><code>28 - 20 = 8</code></p>
+          <p class="sum"><code>8 = 8</code> (Cumple la igualdad)</p>
+        </div>
+
+        <hr style="border: 1px dashed #4a5568; margin: 30px 0;">
+
+        <!-- 4. Con Literales -->
+        <h3 style="color: #63b3ed;">4. Ecuaciones con Literales</h3>
+        <div class="example">
+          <strong>Ejemplo:</strong> <code>ax + b = cx + d</code>
+          <ol>
+            <li>Transponemos términos con x a la izquierda: <code>ax - cx = d - b</code></li>
+            <li>Factorizamos x (factor común): <code>x(a - c) = d - b</code></li>
+            <li>Despejamos x: <strong>x = (d - b) / (a - c)</strong></li>
+          </ol>
+        </div>
+        <button class="toggle-btn" onclick="toggleTable('comp_eq4', this)">Ver comprobación</button>
+        <div id="comp_eq4" class="table-container hidden">
+          <p>Sustituimos <code>x</code> en la ecuación original:</p>
+          <p><code>a[(d - b) / (a - c)] + b = c[(d - b) / (a - c)] + d</code></p>
+          <p>Al desarrollar y buscar común denominador en ambos lados, se llega a:</p>
+          <p class="sum"><code>(ad - bc) / (a - c) = (ad - bc) / (a - c)</code> (Identidad comprobada)</p>
+        </div>
+      </section>
+
+      <!-- Problema de Planteamiento (Inventado) -->
+      <section class="product-section" style="border-left: 5px solid #f6ad55;">
+        <h2>Problema de Planteamiento (Software)</h2>
+        <div class="rule">
+          <strong>Enunciado:</strong> Un desarrollador web freelance cobra una tarifa fija de instalación de $500 pesos, más $200 pesos por cada hora de programación invertida. Si al entregar una página web cobró un total de $3,500 pesos, ¿cuántas horas programó?
+        </div>
+        <div class="example">
+          <strong>Solución con los 5 pasos:</strong>
+          <ol>
+            <li><strong>Incógnita:</strong> <code>x</code> = Cantidad de horas programadas.</li>
+            <li><strong>Traducción:</strong> Instalación = 500, Costo por hora = 200x, Total = 3500.</li>
+            <li><strong>Ecuación:</strong> <code>200x + 500 = 3500</code></li>
+            <li><strong>Solución:</strong> 
+              <br><code>200x = 3500 - 500</code>
+              <br><code>200x = 3000</code>
+              <br><code>x = 3000 / 200</code> ➔ <strong>x = 15</strong>
+            </li>
+            <li><strong>Validación contra el enunciado:</strong> Si el desarrollador trabajó 15 horas, cobró 15 * $200 = $3,000 pesos por programación. Si le sumamos los $500 pesos de la tarifa de instalación, obtenemos los $3,500 pesos finales, lo cual valida el escenario del problema.</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- NUEVA ENTRADA: GENERADOR DE IMÁGENES -->
+      <!-- ========================================== -->
+      <hr style="border: 1px solid #2d3748; margin: 60px 0;" id="generador-imagenes">
+      
+      <h1>Proyecto: Generador de Imágenes I</h1>
+      
+      <p class="intro">En esta entrada implementamos un Generador de Imágenes aleatorias funcional utilizando JavaScript, cumpliendo con los requerimientos del Proyecto de la Actividad #27.</p>
+
+      <section class="product-section" style="border-left: 5px solid #9f7aea; text-align: center;">
+        <h2 style="color: #b794f4; border-bottom: 1px solid #2d3748; padding-bottom: 10px; margin-top: 0;">Visor Dinámico</h2>
+        <p>Haz clic en el botón para solicitar una nueva imagen aleatoria al servidor.</p>
+        <div style="margin: 30px 0; display: flex; justify-content: center;">
+          <img id="imagen-generada" src="https://images.dog.ceo/breeds/pug/n02110958_13612.jpg" alt="Imagen aleatoria" style="max-width: 100%; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.6); min-height: 200px; background-color: #1a202c; object-fit: cover;">
+        </div>
+        <button class="toggle-btn" style="background-color: #805ad5; font-size: 1.1em; padding: 15px 25px;" onclick="generarImagen()">📸 Generar Nueva Imagen</button>
+      </section>
+
+    </article>
+  </div>
+
+  <script>
+    function toggleTable(tableId, btnElement) {
+      const tableContainer = document.getElementById(tableId);
+      
+      if (tableContainer.classList.contains('hidden')) {
+        tableContainer.classList.remove('hidden');
+        btnElement.textContent = "Ocultar comprobación";
+        btnElement.style.backgroundColor = "#2b6cb0"; 
+      } else {
+        tableContainer.classList.add('hidden');
+        btnElement.textContent = "Ver comprobación";
+        btnElement.style.backgroundColor = "#4a5568"; 
+      }
+    }
+
+    async function generarImagen() {
+      const img = document.getElementById('imagen-generada');
+      const boton = document.querySelector('.toggle-btn[onclick="generarImagen()"]');
+      
+      try {
+        // Indicador de carga
+        boton.textContent = "⏳ Cargando...";
+        img.style.opacity = "0.5";
+
+        // Usar una API diferente que no suele ser bloqueada por Opera GX
+        const response = await fetch('https://dog.ceo/api/breeds/image/random');
+        const data = await response.json();
+        
+        img.src = data.message;
+        
+        // Restaurar estado visual cuando termine de cargar
+        img.onload = () => {
+          img.style.opacity = "1";
+          boton.textContent = "📸 Generar Nueva Imagen";
+        };
+      } catch (error) {
+        console.error("Error al cargar imagen:", error);
+        boton.textContent = "❌ Error. Intenta de nuevo";
+        setTimeout(() => boton.textContent = "📸 Generar Nueva Imagen", 2000);
+      }
+    }
+  </script>
+</body>
+</html>
